@@ -7,16 +7,6 @@ import com.example.yiyo.epoxydemo.R;
 
 public class HeaderModel extends EpoxyModel {
 
-    @Override
-    public void bind(Object view) {
-        super.bind(view);
-    }
-
-    @Override
-    public void unbind(Object view) {
-        super.unbind(view);
-    }
-
     @LayoutRes
     @Override
     protected int getDefaultLayout() {
