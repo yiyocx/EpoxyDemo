@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
         MainViewModel viewModel = new MainViewModel(this);
 
         binding.setViewModel(viewModel);
-        binding.recycler.setAdapter(viewModel.getPhotoAdapter());
+        binding.recycler.setAdapter(viewModel.getMainAdapter());
 
         viewModel.loadCollections();
     }
