@@ -1,9 +1,9 @@
-package com.example.yiyo.epoxydemo.models;
+package com.example.yiyo.epoxydemo.epoxy.models;
 
 import com.airbnb.epoxy.EpoxyModel;
 import com.example.yiyo.epoxydemo.R;
 import com.example.yiyo.epoxydemo.rest.models.Photo;
-import com.example.yiyo.epoxydemo.views.AuthorPhotosView;
+import com.example.yiyo.epoxydemo.epoxy.views.AuthorPhotosView;
 
 import java.util.List;
 

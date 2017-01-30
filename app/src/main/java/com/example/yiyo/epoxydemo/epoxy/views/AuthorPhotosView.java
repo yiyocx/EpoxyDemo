@@ -1,4 +1,4 @@
-package com.example.yiyo.epoxydemo.views;
+package com.example.yiyo.epoxydemo.epoxy.views;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -7,7 +7,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.yiyo.epoxydemo.R;
-import com.example.yiyo.epoxydemo.adapters.AuthorPhotosAdapter;
+import com.example.yiyo.epoxydemo.epoxy.adapters.AuthorPhotosAdapter;
 import com.example.yiyo.epoxydemo.rest.models.Photo;
 
 import java.util.List;

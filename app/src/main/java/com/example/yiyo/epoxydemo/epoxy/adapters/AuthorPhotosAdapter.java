@@ -1,11 +1,9 @@
-package com.example.yiyo.epoxydemo.adapters;
+package com.example.yiyo.epoxydemo.epoxy.adapters;
 
-import android.view.View;
 import android.widget.ImageView;
 
 import com.airbnb.epoxy.EpoxyAdapter;
 import com.airbnb.epoxy.EpoxyModel;
-import com.airbnb.epoxy.SimpleEpoxyModel;
 import com.example.yiyo.epoxydemo.R;
 import com.example.yiyo.epoxydemo.rest.models.Photo;
 import com.squareup.picasso.Picasso;

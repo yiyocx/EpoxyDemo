@@ -1,9 +1,12 @@
-package com.example.yiyo.epoxydemo;
+package com.example.yiyo.epoxydemo.groupie;
 
-import com.example.yiyo.epoxydemo.epoxy.adapters.MainAdapter;
+import com.example.yiyo.epoxydemo.groupie.items.HeaderItem;
+import com.example.yiyo.epoxydemo.groupie.items.PhotoCarousel;
 import com.example.yiyo.epoxydemo.rest.ServiceGenerator;
 import com.example.yiyo.epoxydemo.rest.models.Photo;
 import com.example.yiyo.epoxydemo.rest.services.UnsplashService;
+import com.genius.groupie.GroupAdapter;
+import com.genius.groupie.Section;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -16,17 +19,15 @@ import rx.functions.Action1;
 import rx.functions.Func1;
 import rx.schedulers.Schedulers;
 
-public class MainViewModel {
+public class MainGroupieViewModel {
 
-    private MainActivity view;
-    private MainAdapter mainAdapter;
+    private GroupAdapter groupAdapter;
 
-    public MainViewModel(MainActivity view) {
-        this.view = view;
-        mainAdapter = new MainAdapter();
+    public MainGroupieViewModel() {
+        groupAdapter = new GroupAdapter();
     }
 
-    public void loadCollections() {
+    public void loadPhotos() {
         ServiceGenerator.createService(UnsplashService.class).getAllPhotos()
                 .map(new Func1<List<Photo>, Map<String, List<Photo>>>() {
                     @Override
@@ -49,7 +50,12 @@ public class MainViewModel {
                 .subscribe(new Action1<Map<String, List<Photo>>>() {
                     @Override
                     public void call(Map<String, List<Photo>> authorsAndPhotos) {
-                        mainAdapter.addPhotos(authorsAndPhotos);
+                        for (Map.Entry<String, List<Photo>> entry : authorsAndPhotos.entrySet()) {
+                            Section section = new Section();
+                            section.setHeader(new HeaderItem(entry.getKey()));
+                            section.add(new PhotoCarousel(entry.getValue()));
+                            groupAdapter.add(section);
+                        }
                     }
                 }, new Action1<Throwable>() {
                     @Override
@@ -59,7 +65,7 @@ public class MainViewModel {
                 });
     }
 
-    public MainAdapter getMainAdapter() {
-        return mainAdapter;
+    public GroupAdapter getAdapter() {
+        return groupAdapter;
     }
 }
